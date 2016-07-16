@@ -1,0 +1,29 @@
+_recordDemo1 input parameter list [record #bok d5cc34, record #book d2cd]
+output parameter list[record #book d3];
+d3<--- d5cc34 + d2cd;
+return [d3];
+end
+_main
+record #book
+type int : edition;
+type int: price;
+endrecord;
+record #bo
+type int : edition;
+type real: price;
+endrecord;
+type record #book: b2;
+type record #book: c2;
+type record #book: d2;
+type record #bo: b2d;
+type int : b2c;
+b2.edition <--- 3;
+b2.price <--- 24.95;
+c2.edition <--- 2;
+c2.price <--- 98.80;
+b2d<---c2+d2;
+b2<---b2*b2c;
+[d2]<--- call _function1 with parameters [b2,c2];
+write(d2);
+return;
+end

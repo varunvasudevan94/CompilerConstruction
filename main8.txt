@@ -1,0 +1,34 @@
+
+%If without else part, nested if statements, complex boolean expressions are written in this.
+%If 1st if should be correct please change 100 to some other number
+%Input1: b3c45 is 200, b2d6 100. output is 100,300
+%Input2: b3c45 is 200, b2d6 200. output is 100,200 
+_main
+	type int :b3c45;
+	type int : b2d6;
+	type int : d6:global;
+	read(b3c45);
+	read(b2d6);
+	d6<--- 100;
+	if((b3c45 >= b2d6) &&& (~(d6==100))) %always gives false
+	then
+		d6<---d6+100;
+	endif
+
+	write(d6);
+
+	if(b3c45==b2d6)
+	then
+		d6<---d6+100;
+	else
+		if(d6==100)
+		then
+			d6<---300;
+		else
+			d6<---400;
+		endif
+	endif
+	write(d6);
+	return;
+end
+

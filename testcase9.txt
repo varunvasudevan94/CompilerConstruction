@@ -1,0 +1,37 @@
+_swpints
+input parameter list [record #rec b2b, record #rec b2c]   
+output parameter list[record #rec c2b, record #rec c2c]; 
+read(b2c);
+c2b<---b2c;
+c2c<---b2b;
+return [c2b, c2c]; 
+end 
+
+_swprecs
+input parameter list [record #rec d5c, record #rec d2c]   
+output parameter list[record #rec d2d, record #rec d2b];
+
+[d2d,d2b]<--- call _swprecs with parameters [d5c,d2c];
+%[d5d.len,d2b.len]<--- call _swpints with parameters [d5b.len, d5c.len];
+[d2d,d2b]<--- call _swpints with parameters [d5b, d5c];
+
+return [d5c];
+end
+
+_main 
+  record  #rec 
+    type int : len; 
+    type int : height; 
+  endrecord; 
+type record #rec : b2; 
+type record #rec : d5b: global; 
+ type record #rec : c2; 
+b2.len<---5;
+b2.height <---7;
+d5b.len <---10.56;
+d5b.height <---20;
+[b2, c2]<--- call _swprecs with parameters [b2,d5b]; 
+%write(b2);
+%write(c2);
+return;
+end

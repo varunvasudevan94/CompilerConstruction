@@ -1,0 +1,32 @@
+	
+%nested loop is written. It's an extension of main3.txt. 
+%The inner loop simply prints 5 lines. 
+%The same input to main3.txt can be used here.
+
+_main
+	type int : b5b567;
+	type int : c3bd;
+	type int : d3;
+	type int : d4;
+	type int : c5;
+	b5b567 <--- 1;
+	d3 <---0;
+	d4 <---0;
+	c5 <---0;
+	while ( b5b567 <= 7)
+		read( c3bd);
+		d3 <--- d3 + c3bd;
+		d4<---c5;
+		while (d4<=4)
+			write(d4);
+			d4<---d4+1;
+		endwhile
+		b5b567 <--- b5b567 + 1;
+	endwhile
+	write(d3);
+	return;
+end
+
+
+
+
